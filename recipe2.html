@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    .card-img-top {
+        height: 200px; 
+        object-fit: cover; 
+       
+    }
+
+    body {
+    font-family: Montserrat;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wid!th=device-width, initial-scale=1.0">
+    <title>Receta Deliciosa</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+</head>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-bg-blue">
+        <a class="navbar-brand" href="Menu.html">Kitchen master</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Recetas.html">Recetas</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-link nav-link" data-toggle="modal" data-target="#registerModal">
+                        Registro
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-link nav-link" data-toggle="modal" data-target="#login">
+                        Login
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="card">
+            <img src="https://pastaslamuneca.com/wp-content/uploads/2021/05/lasana-en-salsa-bechamel.jpg" class="card-img-top" alt="Receta Imagen">
+            <div class="card-body">
+                <h5 class="card-title">Lasaña Clásica</h5>
+                <p class="card-text">La lasaña clásica es un platillo italiano que combina capas de pasta, carne sazonada, queso y una deliciosa salsa de tomate. ¡Una experiencia auténtica en cada bocado!</p>
+                <h6>Ingredientes</h6>
+                <ul>
+                    <li>12 láminas de pasta para lasaña</li>
+                    <li>500g de carne molida de res</li>
+                    <li>1 cebolla picada</li>
+                    <li>2 dientes de ajo picados</li>
+                    <li>800g de salsa de tomate</li>
+                    <li>2 tazas de queso ricotta</li>
+                    <li>1 taza de queso parmesano rallado</li>
+                    <li>2 tazas de queso mozzarella rallado</li>
+                    <li>1 huevo</li>
+                    <li>1/4 taza de albahaca fresca picada</li>
+                    <li>Sal y pimienta al gusto</li>
+                    <li>Aceite de oliva</li>
+                </ul>
+                <p>Tiempo de Preparación: 1 hora</p>
+                <h6>Preparación</h6>
+                <p>
+                    1. En una sartén, calienta aceite de oliva y sofríe la cebolla y el ajo hasta que estén dorados.<br>
+                    2. Agrega la carne molida y cocina hasta que se dore. Añade la salsa de tomate y deja cocinar a fuego lento.<br>
+                    3. En un tazón aparte, mezcla el queso ricotta, queso parmesano, queso mozzarella, huevo y albahaca. Añade sal y pimienta al gusto.<br>
+                    4. Precalienta el horno a 180°C.<br>
+                    5. En un refractario, coloca una capa de salsa de carne, seguida de láminas de pasta y la mezcla de quesos. Repite este proceso hasta agotar los ingredientes, terminando con una capa de queso.<br>
+                    6. Hornea en el horno precalentado por 30-40 minutos, o hasta que la lasaña esté dorada y burbujeante.<br>
+                    7. Deja reposar por unos minutos antes de cortar y servir caliente.<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Registrar usuario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="registroForm">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" id="nombre" class="form-control" placeholder="Nombre(s)" required>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="apellidos" class="form-control" placeholder="Apellidos" required>
+                    </div>
+                </div>
+                <input type="mail" id="correo" class="form-control mt-3" placeholder="Tu correo" required>
+                <input type="password" id="contrasena" class="form-control mt-3" placeholder="Contraseña" required>
+                <input type="password" id="confirmContrasena" class="form-control mt-3" placeholder="Confirmar contraseña" required>
+                <button type="submit" class="btn btn-success mt-3 mx-auto w-100">Registrarse</button>
+    
+              </form>
+              <div id="mensajeExito" class="alert alert-success mt-3" style="display:none;">Usuario registrado con éxito!</div>
+          </div>
+          </div>
+        </div>
+    </div>
+          <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Login</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+        
+                <div class="modal-body">
+                  <div class="container-fluid">
+                    <div class="form-group">
+                      <label for="">Correo</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="fas fa-user    "></i></span>
+                        </div>
+                        <input type="text" class="col-10 form-control" name="" id="" aria-describedby="helpId"
+                          placeholder="correo registrado">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon2"><i class="fas fa-key    "></i></span>
+                        </div>
+                        <input type="password" class="col-10 form-control" name="" id="" aria-describedby="helpId"
+                          placeholder="ingresa tu contraseña">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="controls">
+                        <button type="button" id="loginButton" class="btn btn-success mt-3 mx-auto w-100">Login</button>
+        
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-12 control">
+                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                          No tienes cuenta!
+                          <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#registro">
+                            Registrate aquí
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

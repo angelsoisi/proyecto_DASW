@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    .card-img-top {
+        height: 200px; 
+        object-fit: cover; 
+       
+    }
+
+    body {
+    font-family: Montserrat;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wid!th=device-width, initial-scale=1.0">
+    <title>Receta Deliciosa</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+</head>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-bg-blue">
+        <a class="navbar-brand" href="Menu.html">Kitchen master</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Recetas.html">Recetas</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-link nav-link" data-toggle="modal" data-target="#registerModal">
+                        Registro
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-link nav-link" data-toggle="modal" data-target="#login">
+                        Login
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="card">
+            <img src="https://storage.googleapis.com/fitia-api-bucket/media/images/recipe_images/1003443.jpg" class="card-img-top" alt="Receta Imagen">
+            <div class="card-body">
+                <h5 class="card-title">Tacos de Bistec</h5>
+                <p class="card-text">Los tacos de bistec son una deliciosa opción de la cocina mexicana, con trozos de bistec sazonados y cocidos a la perfección, acompañados de ingredientes frescos y salsas vibrantes.</p>
+                <h6>Ingredientes</h6>
+                <ul>
+                    <li>500g de bistec de res, cortado en tiras</li>
+                    <li>1 cebolla, en rodajas</li>
+                    <li>2 pimientos (rojo y verde), en tiras</li>
+                    <li>2 dientes de ajo, picados</li>
+                    <li>Jugo de 2 limones</li>
+                    <li>1 cucharada de comino molido</li>
+                    <li>1 cucharadita de pimentón</li>
+                    <li>Sal y pimienta al gusto</li>
+                    <li>8 tortillas de maíz</li>
+                    <li>Guarniciones: cilantro fresco, cebolla picada, limón</li>
+                    <li>Salsas a elección: salsa verde, salsa roja, salsa de aguacate</li>
+                </ul>
+                <p>Tiempo de Preparación: 40 minutos</p>
+                <h6>Preparación</h6>
+                <p>
+                    1. En un tazón, marina las tiras de bistec con jugo de limón, comino, pimentón, ajo picado, sal y pimienta. Deja reposar por al menos 30 minutos.<br>
+                    2. Calienta un poco de aceite en una sartén a fuego medio-alto. Agrega las tiras de bistec y cocina hasta que estén doradas y cocidas.<br>
+                    3. Agrega las rodajas de cebolla y tiras de pimientos a la sartén. Cocina hasta que las verduras estén tiernas.<br>
+                    4. Calienta las tortillas de maíz en una sartén o comal.<br>
+                    5. Rellena cada tortilla con las tiras de bistec, cebollas y pimientos.<br>
+                    6. Sirve los tacos de bistec con guarniciones frescas como cilantro, cebolla y limón.<br>
+                    7. Acompaña con tus salsas favoritas.<br>
+                    8. ¡Disfruta de tus deliciosos tacos de bistec!<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Registrar usuario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="registroForm">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" id="nombre" class="form-control" placeholder="Nombre(s)" required>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="apellidos" class="form-control" placeholder="Apellidos" required>
+                    </div>
+                </div>
+                <input type="mail" id="correo" class="form-control mt-3" placeholder="Tu correo" required>
+                <input type="password" id="contrasena" class="form-control mt-3" placeholder="Contraseña" required>
+                <input type="password" id="confirmContrasena" class="form-control mt-3" placeholder="Confirmar contraseña" required>
+                <button type="submit" class="btn btn-success mt-3 mx-auto w-100">Registrarse</button>
+    
+              </form>
+              <div id="mensajeExito" class="alert alert-success mt-3" style="display:none;">Usuario registrado con éxito!</div>
+          </div>
+          </div>
+        </div>
+    </div>
+          <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Login</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+        
+                <div class="modal-body">
+                  <div class="container-fluid">
+                    <div class="form-group">
+                      <label for="">Correo</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="fas fa-user    "></i></span>
+                        </div>
+                        <input type="text" class="col-10 form-control" name="" id="" aria-describedby="helpId"
+                          placeholder="correo registrado">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon2"><i class="fas fa-key    "></i></span>
+                        </div>
+                        <input type="password" class="col-10 form-control" name="" id="" aria-describedby="helpId"
+                          placeholder="ingresa tu contraseña">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="controls">
+                        <button type="button" id="loginButton" class="btn btn-success mt-3 mx-auto w-100">Login</button>
+        
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-12 control">
+                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                          No tienes cuenta!
+                          <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#registro">
+                            Registrate aquí
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

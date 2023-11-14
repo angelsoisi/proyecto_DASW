@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Receta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label, input, textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            padding: 10px 0;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+  
+
+
+    <h1>Subir Receta</h1>
+
+    <form id="recipeForm" action="#" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="descripcion">Descripcion:</label>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+        <label for="preparacion">Preparacion:</label>
+        <textarea id="preparacion" name="preparacion" rows="4" required></textarea>
+
+        <label for="tiempo">Tiempo de Preparacion:</label>
+        <input type="text" id="tiempo" name="tiempo" required>
+
+        <label for="imagen">Imagen:</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+
+        <input type="submit" value="Subir Receta">
+        <a href="misrecetas.html" class="btn btn-primary">Volver a tus recetas</a>
+
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('recipeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            // Extraer datos del formulario
+            var nombre = document.getElementById('nombre').value;
+            var descripcion = document.getElementById('descripcion').value;
+            var preparacion = document.getElementById('preparacion').value;
+            var tiempo = document.getElementById('tiempo').value;
+    
+            // Crear una cadena CSV
+            var csvContent = "Nombre,Descripcion,Preparacion,Tiempo\n";
+            csvContent += `${nombre},"${descripcion}","${preparacion}",${tiempo}\n`;
+    
+            // Crear un Blob con la cadena CSV
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
+    
+            // Descargar el archivo
+            saveAs(blob, 'receta.csv');
+        });
+    </script>
+    
+</body>
+
+</html>
