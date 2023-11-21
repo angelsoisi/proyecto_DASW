@@ -1,100 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<style>
-    .card-img-top {
-        height: 200px; 
-        object-fit: cover; 
-       
-    }
-
-    body {
-    font-family: Montserrat;
-    }
-</style>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Receta Deliciosa</title>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
+    <style>
+      .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
 
-</head>
-<body>
+      body {
+        font-family: Montserrat;
+      }
+    </style>
+  </head>
+
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light custom-bg-blue">
-        <a class="navbar-brand" href="Menu.html">Kitchen master</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="Recetas.html">Recetas</a>
-                </li>
-                <li class="nav-item">
-                  <a href="index.html" class="btn btn-link nav-link">
-                      Registro
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a href="login.html" class="btn btn-link nav-link">
-                      Login
-                  </a>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="menu.html">Menu</a>
-                </li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="Menu.html">Kitchen master</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="Recetas.html">Recetas</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html" class="btn btn-link nav-link"> Registro </a>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="btn btn-link nav-link"> Login </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menu.html">Menu</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <div class="container mt-4">
-        <div class="card">
-            <img src="https://www.goya.com/media/3202/chicken-flautas.jpg?quality=80" class="card-img-top" alt="Receta Imagen">
-            <div class="card-body">
-                <h5 class="card-title">Flautas de Pollo</h5>
-                <p class="card-text">Las flautas de pollo son un platillo mexicano delicioso que consiste en tortillas de maíz rellenas de pollo, enrolladas y fritas hasta obtener una textura crujiente. Se sirven con guarniciones frescas y salsas vibrantes.</p>
-                <h6>Ingredientes</h6>
-                <ul>
-                    <li>12 tortillas de maíz</li>
-                    <li>500g de pechugas de pollo cocidas y desmenuzadas</li>
-                    <li>1 cebolla picada</li>
-                    <li>2 dientes de ajo picados</li>
-                    <li>1 tomate picado</li>
-                    <li>1 taza de lechuga rallada</li>
-                    <li>1 taza de queso rallado (preferiblemente queso fresco o queso mexicano)</li>
-                    <li>Aceite vegetal para freír</li>
-                    <li>Sal y pimienta al gusto</li>
-                    <li>Guarniciones: crema agria, salsa, aguacate</li>
-                </ul>
-                <p>Tiempo de Preparación: 45 minutos</p>
-                <h6>Preparación</h6>
-                <p>
-                    1. En una sartén, calienta un poco de aceite y sofríe la cebolla y el ajo hasta que estén dorados.<br>
-                    2. Agrega el pollo desmenuzado y cocina hasta que esté bien cocido. Añade sal y pimienta al gusto.<br>
-                    3. Agrega el tomate picado y cocina por unos minutos hasta que se mezcle bien con el pollo.<br>
-                    4. Calienta las tortillas de maíz.<br>
-                    5. Rellena cada tortilla con la mezcla de pollo, enrolla y asegura con palillos para que mantengan su forma.<br>
-                    6. Calienta aceite en una sartén profunda a fuego medio-alto. Fríe las flautas hasta que estén doradas y crujientes.<br>
-                    7. Retira las flautas y colócalas sobre papel absorbente para quitar el exceso de aceite.<br>
-                    8. Sirve las flautas de pollo con lechuga rallada, queso, crema agria, salsa y aguacate al gusto.<br>
-                    9. ¡Disfruta de estas deliciosas flautas de pollo crujientes!<br>
-                </p>
-            </div>
+      <div class="card">
+        <img
+          src="https://www.goya.com/media/3202/chicken-flautas.jpg?quality=80"
+          class="card-img-top"
+          alt="Receta Imagen"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Flautas de Pollo</h5>
+          <p class="card-text">
+            Las flautas de pollo son un platillo mexicano delicioso que consiste
+            en tortillas de maíz rellenas de pollo, enrolladas y fritas hasta
+            obtener una textura crujiente. Se sirven con guarniciones frescas y
+            salsas vibrantes.
+          </p>
+          <h6>Ingredientes</h6>
+          <ul>
+            <li>12 tortillas de maíz</li>
+            <li>500g de pechugas de pollo cocidas y desmenuzadas</li>
+            <li>1 cebolla picada</li>
+            <li>2 dientes de ajo picados</li>
+            <li>1 tomate picado</li>
+            <li>1 taza de lechuga rallada</li>
+            <li>
+              1 taza de queso rallado (preferiblemente queso fresco o queso
+              mexicano)
+            </li>
+            <li>Aceite vegetal para freír</li>
+            <li>Sal y pimienta al gusto</li>
+            <li>Guarniciones: crema agria, salsa, aguacate</li>
+          </ul>
+          <p>Tiempo de Preparación: 45 minutos</p>
+          <h6>Preparación</h6>
+          <p>
+            1. En una sartén, calienta un poco de aceite y sofríe la cebolla y
+            el ajo hasta que estén dorados.<br />
+            2. Agrega el pollo desmenuzado y cocina hasta que esté bien cocido.
+            Añade sal y pimienta al gusto.<br />
+            3. Agrega el tomate picado y cocina por unos minutos hasta que se
+            mezcle bien con el pollo.<br />
+            4. Calienta las tortillas de maíz.<br />
+            5. Rellena cada tortilla con la mezcla de pollo, enrolla y asegura
+            con palillos para que mantengan su forma.<br />
+            6. Calienta aceite en una sartén profunda a fuego medio-alto. Fríe
+            las flautas hasta que estén doradas y crujientes.<br />
+            7. Retira las flautas y colócalas sobre papel absorbente para quitar
+            el exceso de aceite.<br />
+            8. Sirve las flautas de pollo con lechuga rallada, queso, crema
+            agria, salsa y aguacate al gusto.<br />
+            9. ¡Disfruta de estas deliciosas flautas de pollo crujientes!<br />
+          </p>
         </div>
+      </div>
     </div>
-    
-    
-    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
-    
-</body>
+  </body>
 </html>
