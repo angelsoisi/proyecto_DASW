@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-mongoose.connect("mongodb://127.0.0.1:27017/UsuariosKitchen");
+mongoose.connect("mongodb+srv://lalo:T0rhZsNTyak45Dk3@dasw.3u5pwys.mongodb.net/?retryWrites=true&w=majority");
 var db = mongoose.connection;
 db.on("error", console.log.bind(console, "connection error"));
 db.once("open", function (callback) {
