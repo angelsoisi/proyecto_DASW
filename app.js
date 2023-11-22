@@ -20,6 +20,41 @@ app.use(
   })
 );
 
+const Receta = require('./Receta.js'); // Asegúrate de tener el modelo de Receta
+
+app.post('/subirReceta', async function(req, res) {
+  // Crear una nueva instancia del modelo Receta con los datos del formulario
+  const nuevaReceta = new Receta({
+      nombre: req.body.nombre,
+      descripcion: req.body.descripcion,
+      preparacion: req.body.preparacion,
+      tiempo: req.body.tiempo,
+      imagen: req.body.imagen
+  });
+
+  // Guardar la nueva receta en la base de datos
+  try {
+      const recetaGuardada = await nuevaReceta.save();
+      console.log("Receta agregada correctamente.");
+      // Aquí puedes enviar la recetaGuardada de vuelta al cliente si es necesario
+      // res.status(200).send(recetaGuardada);
+      // O puedes redirigir al usuario a su lista de recetas
+      res.redirect('/misrecetas.html');
+  } catch (err) {
+      console.error(err);
+      res.status(500).send("Error al guardar en la base de datos.");
+  }
+});
+
+app.get('/obtenerRecetas', async (req, res) => {
+  try {
+      const recetas = await Receta.find({});
+      res.json(recetas);
+  } catch (err) {
+      res.status(500).send("Error al obtener las recetas.");
+  }
+});
+
 
 app.post("/sign_up", async function (req, res) {
    var name = req.body.name;
@@ -72,6 +107,8 @@ app.post("/login", async function (req, res) {
  
    return res.redirect("Menu.html");
  });
+
+
  
 
 app.get("/", function (req, res) {

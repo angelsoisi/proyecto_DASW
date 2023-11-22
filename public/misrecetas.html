@@ -155,7 +155,7 @@
    
    
     <div class="featured-recipes">
-        <div class="container">
+        <div id="lista-recetas" class="container">
             <h2 class="text-center">Recetas populares!</h2>
             <div class="row">
                 <div class="col-md-4">
@@ -292,7 +292,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="script.js">
+    <script src="script.js"></script>
     
 
      
@@ -302,7 +302,41 @@
         $('#login').modal('hide');
     });
 });
-    </script>
+
+<!-- ... otros elementos HTML ... -->
+
+<script>
+// Al cargar la página, recuperamos las recetas y las mostramos
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/obtenerRecetas')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(recetas => {
+        const listaRecetas = document.getElementById('lista-recetas');
+        recetas.forEach(receta => {
+            const elementoReceta = document.createElement('div');
+            elementoReceta.innerHTML = `
+                <h2>${receta.nombre}</h2>
+                <p>${receta.descripcion}</p>
+                <p><strong>Tiempo de preparación:</strong> ${receta.tiempo}</p>
+                <img src="${receta.imagen}" alt="Imagen de ${receta.nombre}" style="max-width: 100%;">
+            `;
+            listaRecetas.appendChild(elementoReceta);
+        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
+
+</body>
+</html>
+
 
 </body>
 </html>

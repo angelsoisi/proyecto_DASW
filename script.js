@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "La comida es simbólica del amor cuando las palabras son insuficientes."
      
     ];
+    
 
     function getRandomQuote() {
         const randomIndex = Math.floor(Math.random() * quotes.length);
@@ -29,6 +30,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const quoteElement = document.querySelector('.quote-text');
     quoteElement.textContent = getRandomQuote();
+
+
+    // Ahora agregamos el evento de escucha para el formulario de subida de recetas
+    document.getElementById('recipeForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var formData = new FormData(this);
+
+        fetch('/subirReceta', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Suponiendo que el servidor responde con los datos de la receta insertada
+            console.log('Receta agregada:', data);
+            // Aquí añades la receta al DOM, o puedes redirigir o mostrar una notificación
+            agregarRecetaAlDOM(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Función para agregar la receta al DOM, como se explicó anteriormente
+    function agregarRecetaAlDOM(receta) {
+        var listaRecetas = document.getElementById('lista-recetas'); // Asegúrate de tener un elemento con este id en tu HTML
+        var elementoReceta = document.createElement('div');
+        elementoReceta.innerHTML = `
+            <h2>${receta.nombre}</h2>
+            <p>${receta.descripcion}</p>
+            <p><strong>Tiempo de preparación:</strong> ${receta.tiempo}</p>
+            <img src="${receta.imagen}" alt="Imagen de ${receta.nombre}">
+        `;
+        listaRecetas.appendChild(elementoReceta);
+    }
+
 });
 
 
