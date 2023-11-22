@@ -1,121 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subir Receta</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        text-align: center;
+      }
 
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-        label, input, textarea {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-        }
+      label,
+      input,
+      textarea {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
 
-        input, textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+      input,
+      textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
 
-        input[type="file"] {
-            padding: 10px 0;
-        }
+      input[type="file"] {
+        padding: 10px 0;
+      }
 
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-  
-
-
+  <body>
     <h1>Subir Receta</h1>
 
     <form id="recipeForm" action="/subirReceta" method="post">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
 
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+      <label for="descripcion">Descripción:</label>
+      <textarea
+        id="descripcion"
+        name="descripcion"
+        rows="4"
+        required
+      ></textarea>
 
-        <label for="preparacion">Preparación:</label>
-        <textarea id="preparacion" name="preparacion" rows="4" required></textarea>
+      <label for="preparacion">Preparación:</label>
+      <textarea
+        id="preparacion"
+        name="preparacion"
+        rows="4"
+        required
+      ></textarea>
 
-        <label for="tiempo">Tiempo de Preparación:</label>
-        <input type="text" id="tiempo" name="tiempo" required>
+      <label for="tiempo">Tiempo de Preparación:</label>
+      <input type="text" id="tiempo" name="tiempo" required />
 
-        <label for="imagen">URL de la Imagen:</label>
-        <input type="text" id="imagen" name="imagen" required>
+      <label for="imagen">URL de la Imagen:</label>
+      <input type="text" id="imagen" name="imagen" required />
 
-        <input type="submit" value="Subir Receta">
-        <a href="misrecetas.html" class="btn btn-primary">Volver a tus recetas</a>
+      <input type="submit" value="Subir Receta" />
+      <a href="misrecetas.html" class="btn btn-primary">Volver a tus recetas</a>
     </form>
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script>
-        
-        document.getElementById('recipeForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        var formData = new FormData(this);
-
-        fetch('/subirReceta', {
-            method: 'POST',
-            body: formData
-            // Aquí no estableces el encabezado 'Content-Type' ya que FormData lo hará por ti
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok.');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-            window.location.href = '/misrecetas.html'; // Redirigir al usuario
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    });
-
-    </script>
-    
-    
-</body>
-
+  </body>
 </html>
