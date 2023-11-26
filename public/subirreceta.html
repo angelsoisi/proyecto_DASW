@@ -99,27 +99,30 @@
     <script src="subirreceta.js"></script>
 
     <script>
-      document
-        .getElementById("recipeForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+    document.getElementById('recipeForm').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-          // Extraer datos del formulario
-          var nombre = document.getElementById("nombre").value;
-          var descripcion = document.getElementById("descripcion").value;
-          var preparacion = document.getElementById("preparacion").value;
-          var tiempo = document.getElementById("tiempo").value;
+      var formData = new FormData(this);
 
-          // Crear una cadena CSV
-          var csvContent = "Nombre,Descripcion,Preparacion,Tiempo\n";
-          csvContent += `${nombre},"${descripcion}","${preparacion}",${tiempo}\n`;
-
-          // Crear un Blob con la cadena CSV
-          var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8" });
-
-          // Descargar el archivo
-          saveAs(blob, "receta.csv");
-        });
+      fetch('/subirReceta', {
+          method: 'POST',
+          body: formData
+          // Aquí no estableces el encabezado 'Content-Type' ya que FormData lo hará por ti
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok.');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log('Success:', data);
+          window.location.href = '/misrecetas.html'; // Redirigir al usuario
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+    });
     </script>
   </body>
 </html>
