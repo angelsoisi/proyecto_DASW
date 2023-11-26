@@ -1,9 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const Receta = require('./Receta.js'); // Asegúrate de tener el modelo de Receta
+const Receta = require('./public/Receta.js'); // Asegúrate de tener el modelo de Receta
 const session = require('express-session');
 const passport = require('passport');
+const User = require("./models/User.js");
 
 const app = express();
 
@@ -21,41 +22,46 @@ mongoose.connection.once("open", () => {
 // ... configuración de express-session y passport ...
 const LocalStrategy = require('passport-local').Strategy;
 
+// ... Resto de tus importaciones ...
+
 passport.use(new LocalStrategy(
   { usernameField: 'email' },
-  (email, password, done) => {
-    User.findOne({ email: email }, (err, user) => {
-      if (err) { return done(err); }
+  async (email, password, done) => {
+    try {
+      const user = await User.findOne({ email: email });
       if (!user) {
         return done(null, false, { message: 'Usuario no encontrado.' });
       }
 
-      bcrypt.compare(password, user.password, (err, isMatch) => {
-        if (err) { return done(err); }
-        if (isMatch) {
-          return done(null, user);
-        } else {
-          return done(null, false, { message: 'Contraseña incorrecta.' });
-        }
-      });
-    });
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return done(null, false, { message: 'Contraseña incorrecta.' });
+      }
+
+      return done(null, user);
+    } catch (err) {
+      return done(err);
+    }
   }
 ));
-
 
 app.use(session({ secret: 'tu_secreto', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser((user, done) => {
-  done(null, user._id);  // o user._id si estás usando MongoDB
+  done(null, user._id);
 });
 
-passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
-    done(err, user);
-  });
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
 });
+
 
 
 // Middleware para servir archivos estáticos desde la carpeta 'public'
@@ -111,52 +117,31 @@ app.get('/obtenerRecetas', async (req, res) => {
 
 // Rutas para manejo de usuarios y autenticación
 app.post("/sign_up", async function (req, res) {
-  var name = req.body.name;
-  var email = req.body.email;
-  var plainPassword = req.body.password;
+  try {
+    const { name, email, password } = req.body;
+    const existingUser = await User.findOne({ email: email });
 
-  const existingUser = await mongoose.connection.collection("usuarios").findOne({ email: email });
+    if (existingUser) {
+      return res.redirect("index.html?error=emailInUse");
+    }
 
-  if (existingUser) {
-    return res.redirect("index.html?error=emailInUse");
+    const newUser = new User({ name, email, password });
+    await newUser.save();
+    res.redirect("Menu.html");
+  } catch (err) {
+    console.log(err);
+    res.redirect("index.html?error=registrationFailed");
   }
-
-  const hashedPassword = await bcrypt.hash(plainPassword, 10);
-
-  var data = {
-    name: name,
-    email: email,
-    password: hashedPassword,
-  };
-
-  mongoose.connection.collection("usuarios").insertOne(data, function (err, collection) {
-    if (err) throw err;
-    console.log("Record inserted Successfully");
-    return res.redirect("Menu.html");
-  });
 });
 
+// Ruta de login
+app.post("/login", passport.authenticate('local', {
+  successRedirect: '/Menu.html',
+  failureRedirect: '/login.html?error=invalidCredentials',
+  failureFlash: false
+}));
 app.get("/login", function (req, res) {
   res.sendFile(__dirname + "/login.html");
-});
-
-app.post("/login", async function (req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
-
-  const user = await mongoose.connection.collection("usuarios").findOne({ email: email });
-
-  if (!user) {
-    return res.redirect("login.html?error=invalidCredentials");
-  }
-
-  const passwordMatch = await bcrypt.compare(password, user.password);
-
-  if (!passwordMatch) {
-    return res.redirect("login.html?error=invalidCredentials");
-  }
-
-  return res.redirect("Menu.html");
 });
 
 app.get("/", function (req, res) {
