@@ -5,6 +5,7 @@ const Receta = require('./public/Receta.js'); // Asegúrate de tener el modelo d
 const session = require('express-session');
 const passport = require('passport');
 const User = require("./models/User.js");
+console.log(User);
 
 const app = express();
 
@@ -45,7 +46,12 @@ passport.use(new LocalStrategy(
   }
 ));
 
-app.use(session({ secret: 'tu_secreto', resave: true, saveUninitialized: true }));
+app.use(session({
+  secret: 'tu_secreto',
+  resave: true,
+  saveUninitialized: true,
+  cookie: { sameSite: 'lax' } // O 'strict' o 'none', dependiendo de tus necesidades
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 

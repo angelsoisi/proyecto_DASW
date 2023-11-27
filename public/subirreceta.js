@@ -1,5 +1,5 @@
 "use strict";
-document.getElementById('recipeForm').addEventListener('submit', function(event) {
+document.getElementById('lista-recetas').addEventListener('submit', function(event) {
     event.preventDefault();
 
     var formData = new FormData(this);
