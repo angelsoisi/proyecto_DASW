@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const Receta = require('./public/Receta.js'); // Asegúrate de tener el modelo de Receta
+const Receta = require('./Receta.js'); // Asegúrate de tener el modelo de Receta
 const session = require('express-session');
 const passport = require('passport');
 const User = require("./models/User.js");
@@ -11,8 +11,6 @@ const app = express();
 
 // Configuración de la conexión a MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/UsuariosKitchen", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
 });
 mongoose.connection.on("error", console.error.bind(console, "Error de conexión a MongoDB:"));
 mongoose.connection.once("open", () => {

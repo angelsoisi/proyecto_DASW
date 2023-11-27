@@ -1,9 +1,13 @@
 "use strict";
 
-const mongoose = require('mongoose'); // Import the mongoose module
+const mongoose = require('mongoose');
 
-// Define a new schema for a "Receta" (Recipe)
 const recetaSchema = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', // Esto crea una referencia al modelo de usuario
+    required: true
+  },
   nombre: String,
   descripcion: String,
   preparacion: String,
@@ -11,9 +15,6 @@ const recetaSchema = new mongoose.Schema({
   imagen: String
 });
 
-// Create a model from the schema
 const Receta = mongoose.model('Receta', recetaSchema);
 
-// Export the model
 module.exports = Receta;
-
