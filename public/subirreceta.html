@@ -83,38 +83,12 @@
       <a href="misrecetas.html" class="btn btn-primary">Volver a tus recetas</a>
     </form>
 
-    <script>
-    document.getElementById('recipeForm').addEventListener('submit', function(event) {
-      event.preventDefault();
 
-      var formData = new FormData(this);
-
-      fetch('/subirReceta', {
-          method: 'POST',
-          body: formData
-          // Aquí no estableces el encabezado 'Content-Type' ya que FormData lo hará por ti
-      })
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok.');
-          }
-          return response.json();
-      })
-      .then(data => {
-          console.log('Success:', data);
-          window.location.href = '/misrecetas.html'; // Redirigir al usuario
-      })
-      .catch(error => {
-          console.error('Error:', error);
-      });
-    });
-    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="misrecetas.js"></script>
     <script src="subirreceta.js"></script>
   </body>
 </html>

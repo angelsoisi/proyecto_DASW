@@ -33,48 +33,5 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('El elemento .quote-text no se encuentra en el DOM.');
         }
     
-        const recipeForm = document.getElementById('lista-recetas');
-        if (recipeForm) {
-            recipeForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-    
-                var formData = new FormData(this);
-    
-                fetch('/subirReceta', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Respuesta de red no fue ok.');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Receta agregada:', data);
-                    agregarRecetaAlDOM(data);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            });
-        } else {
-            console.error('El formulario de subida de recetas no se encuentra en el DOM.');
-        }
-    
-        function agregarRecetaAlDOM(receta) {
-            const listaRecetas = document.getElementById('lista-recetas');
-            if (listaRecetas) {
-                const elementoReceta = document.createElement('div');
-                elementoReceta.innerHTML = `
-                    <h2>${receta.nombre}</h2>
-                    <p>${receta.descripcion}</p>
-                    <p><strong>Tiempo de preparación:</strong> ${receta.tiempo}</p>
-                    <img src="${receta.imagen}" alt="Imagen de ${receta.nombre}">
-                `;
-                listaRecetas.appendChild(elementoReceta);
-            } else {
-                console.error('El elemento #lista-recetas no se encuentra en el DOM.');
-            }
-        }
+        
     });
