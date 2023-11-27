@@ -96,11 +96,15 @@ app.post('/subirReceta', async (req, res) => {
     });
 
     await newReceta.save();
-    res.status(200).send("Receta subida con éxito.");
+    
+    // Enviar la receta como respuesta JSON
+    res.status(200).json(newReceta);
+    
   } catch (err) {
     res.status(500).send("Error al subir la receta.");
   }
 });
+
 
 
 // Route to get all recipes for the logged-in user
