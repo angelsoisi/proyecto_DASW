@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const Receta = require('./Receta.js'); // Asegúrate de tener el modelo de Receta
+const Receta = require('./models/Receta.js');
 const session = require('express-session');
 const passport = require('passport');
 const User = require("./models/User.js");
@@ -9,6 +9,7 @@ const User = require("./models/User.js");
 console.log(User);
 
 const app = express();
+const recipeRoutes = require('./routes/recipeRoutes.js');
 
 const mongo_url = process.env.MONGO_URL;
 
@@ -158,6 +159,8 @@ app.get("/login", function (req, res) {
 app.get("/", function (req, res) {
   res.redirect("index.html");
 });
+
+app.use('/api/recipes', recipeRoutes);
 
 // Iniciar el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;
