@@ -32,3 +32,26 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('El elemento .quote-text no se encuentra en el DOM.');
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('applyFilters').addEventListener('click', function() {
+    // Collect filter values
+    const checkboxes = document.querySelectorAll('.filter:checked');
+    const ingredients = Array.from(checkboxes)
+      .map(checkbox => checkbox.value)
+      .join(',');
+
+    // Construct the query string
+    const queryString = `ingredients=${ingredients}`;
+
+    // Make the AJAX call to the server
+    fetch(`/api/recipes/filter?${queryString}`)
+      .then(response => response.json())
+      .then(recipes => {
+        // Handle the filtered recipes here
+        console.log(recipes);
+        // You might want to call a function to update the DOM with these recipes
+      })
+      .catch(error => console.error('Error:', error));
+  });
+});

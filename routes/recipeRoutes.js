@@ -67,4 +67,27 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Route to filter recipes by ingredients and time
+router.get('/filter', async (req, res) => {
+  try {
+    const { ingredients, time } = req.query;
+
+    // Build a query object based on the presence of ingredients and time filters
+    let query = {};
+    if (ingredients) {
+      // Assuming ingredients are stored as an array of strings in the database
+      query.ingredients = { $all: ingredients.split(',') };
+    }
+    if (time) {
+      // Assuming time is stored as a string and you want an exact match
+      query.tiempo = time;
+    }
+
+    const filteredRecetas = await Receta.find(query);
+    res.status(200).json(filteredRecetas);
+  } catch (err) {
+    res.status(500).send(`Error while filtering recipes: ${err.message}`);
+  }
+});
+
 module.exports = router;
