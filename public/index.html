@@ -24,18 +24,6 @@
         cursor: pointer;
       }
     </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const error = urlParams.get("error");
-
-        if (error === "emailInUse") {
-          alert(
-            "Email address is already in use. Please use a different email."
-          );
-        }
-      });
-    </script>
   </head>
   <body>
     <br />
@@ -83,5 +71,6 @@
       </div>
       <div class=""></div>
     </div>
+    <script src="./index.js"></script>
   </body>
 </html>
