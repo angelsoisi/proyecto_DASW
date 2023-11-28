@@ -32,32 +32,3 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('El elemento .quote-text no se encuentra en el DOM.');
   }
 });
-
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('applyFilters').addEventListener('click', function() {
-    // Collect filter values
-    const checkboxes = document.querySelectorAll('.filter:checked');
-    console.log(checkboxes);
-    const ingredients = Array.from(checkboxes)
-      .map(checkbox => checkbox.value)
-      .join(',');
-
-    // Construct the query string
-    const queryString = `ingredients=${ingredients}`;
-
-    // Make the AJAX call to the server
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/filter');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send(queryString);
-
-    // Handle the response
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const recipes = JSON.parse(xhr.responseText);
-        console.log("Recipes:", recipes);
-      }
-    }
-    
-  });
-});

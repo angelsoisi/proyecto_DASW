@@ -29,6 +29,16 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="recetas.css" />
+    <style>
+      .card {
+        transition: transform 1s ease, opacity 0.5s ease;
+      }
+      .card:hover {
+        transform: translate(-50%, -50%) scale(1.2); /* Centra y escala la tarjeta */
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Agrega una sombra brillante */
+      }
+    </style>
   </head>
 
   <body>

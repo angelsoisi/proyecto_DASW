@@ -71,22 +71,17 @@ router.delete('/:id', async (req, res) => {
 router.get('/filter', async (req, res) => {
   try {
     const { ingredients, time } = req.query;
-
-    // Build a query object based on the presence of ingredients and time filters
-    let query = {};
+    const query = {};
     if (ingredients) {
-      // Assuming ingredients are stored as an array of strings in the database
-      query.ingredients = { $all: ingredients.split(',') };
+      query.ingredientes = { $in: ingredients.split(',') };
     }
     if (time) {
-      // Assuming time is stored as a string and you want an exact match
-      query.tiempo = time;
+      query.tiempo = { $lte: parseInt(time) };
     }
-
-    const filteredRecetas = await Receta.find(query);
-    res.status(200).json(filteredRecetas);
+    const recetas = await Receta.find(query);
+    res.status(200).json(recetas);
   } catch (err) {
-    res.status(500).send(`Error while filtering recipes: ${err.message}`);
+    res.status(500).send(`Error filtering recipes: ${err.message}`);
   }
 });
 
