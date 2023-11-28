@@ -10,7 +10,7 @@ console.log(User);
 const app = express();
 
 // Configuración de la conexión a MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/UsuariosKitchen", {
+mongoose.connect("mongodb+srv://lalo:T0rhZsNTyak45Dk3@dasw.3u5pwys.mongodb.net/?retryWrites=true&w=majority", {
 });
 mongoose.connection.on("error", console.error.bind(console, "Error de conexión a MongoDB:"));
 mongoose.connection.once("open", () => {
