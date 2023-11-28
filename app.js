@@ -5,12 +5,15 @@ const Receta = require('./Receta.js'); // Asegúrate de tener el modelo de Recet
 const session = require('express-session');
 const passport = require('passport');
 const User = require("./models/User.js");
+
 console.log(User);
 
 const app = express();
 
+const mongo_url = process.env.MONGO_URL;
+
 // Configuración de la conexión a MongoDB
-mongoose.connect("mongodb+srv://lalo:T0rhZsNTyak45Dk3@dasw.3u5pwys.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect(mongo_url, {
 });
 mongoose.connection.on("error", console.error.bind(console, "Error de conexión a MongoDB:"));
 mongoose.connection.once("open", () => {
