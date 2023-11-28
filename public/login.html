@@ -24,17 +24,6 @@
         cursor: pointer;
       }
     </style>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const error = urlParams.get("error");
-
-        if (error === "invalidCredentials") {
-          alert("Invalid email or password. Please try again.");
-        }
-      });
-    </script>
   </head>
 
   <body>
@@ -75,5 +64,6 @@
       </div>
       <div class=""></div>
     </div>
+    <script src="./login.js"></script>
   </body>
 </html>
