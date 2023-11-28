@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Subir Receta</title>
-    <link rel="stylesheet" href="ssubirreceta.css" />
+    <link rel="stylesheet" href="subirreceta.css" />
   </head>
 
   <body>
@@ -22,6 +22,23 @@
         required
       ></textarea>
 
+      <label for="ingredientes">Ingredientes:</label>
+      <input list="ingredientes" id="ingredientes" name="ingredientes" />
+      <datalist id="ingredientes">
+        <option value="Cebolla"></option>
+        <option value="Tomate"></option>
+        <option value="Pimiento"></option>
+        <option value="Zanahoria"></option>
+        <option value="Calabacín"></option>
+        <option value="Brócoli"></option>
+        <option value="Espárragos"></option>
+        <option value="Champiñones"></option>
+        <option value="Patata"></option>
+      </datalist>
+
+      <label for="tiempo">Tiempo de Preparación:</label>
+      <input type="text" id="tiempo" name="tiempo" required />
+
       <label for="preparacion">Preparación:</label>
       <textarea
         id="preparacion"
@@ -29,9 +46,6 @@
         rows="4"
         required
       ></textarea>
-
-      <label for="tiempo">Tiempo de Preparación:</label>
-      <input type="text" id="tiempo" name="tiempo" required />
 
       <label for="imagen">URL de la Imagen:</label>
       <input type="text" id="imagen" name="imagen" required />
