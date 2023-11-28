@@ -59,31 +59,39 @@
 
   <body>
     <h1>Subir Receta</h1>
-  
+
     <form id="recipeForm" action="/subirReceta" method="post">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" required />
-  
+
       <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-  
+      <textarea
+        id="descripcion"
+        name="descripcion"
+        rows="4"
+        required
+      ></textarea>
+
       <label for="preparacion">Preparación:</label>
-      <textarea id="preparacion" name="preparacion" rows="4" required></textarea>
-  
+      <textarea
+        id="preparacion"
+        name="preparacion"
+        rows="4"
+        required
+      ></textarea>
+
       <label for="tiempo">Tiempo de Preparación:</label>
       <input type="text" id="tiempo" name="tiempo" required />
-  
+
       <label for="imagen">URL de la Imagen:</label>
       <input type="text" id="imagen" name="imagen" required />
-  
+
       <!-- Hidden input field for the user's ID -->
       <input type="hidden" id="userId" name="userId" value="USER_ID_HERE" />
-  
+
       <input type="submit" value="Subir Receta" />
       <a href="misrecetas.html" class="btn btn-primary">Volver a tus recetas</a>
     </form>
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
