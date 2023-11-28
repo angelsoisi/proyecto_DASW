@@ -28,67 +28,67 @@
       integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
       crossorigin="anonymous"
     />
+    <style>
+      .custom-bg-blue {
+        background-color: #cce5ff;
+      }
+
+      body {
+        font-family: Montserrat;
+      }
+      .card {
+        background-color: #e0e0e0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+      .card-img-top {
+        height: 300px;
+        object-fit: cover;
+      }
+      .image-container {
+        position: relative;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0; /* Inicialmente oculto */
+        transition: opacity 0.3s ease; /* Transición de animación */
+      }
+
+      .overlay:hover {
+        opacity: 1; /* Mostrar el texto cuando se pasa el mouse sobre la imagen */
+      }
+
+      .animated-text {
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        margin: 0;
+        opacity: 0; /* Inicialmente oculto */
+        transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Transiciones de animación */
+      }
+
+      .overlay:hover .animated-text {
+        opacity: 1; /* Mostrar el texto cuando se pasa el mouse sobre la imagen */
+        transform: translateY(0); /* Mostrar el texto sin desplazamiento */
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+      }
+    </style>
   </head>
-  <style>
-    .custom-bg-blue {
-      background-color: #cce5ff;
-    }
-
-    body {
-      font-family: Montserrat;
-    }
-    .card {
-      background-color: #e0e0e0;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .card-img-top {
-      height: 300px;
-      object-fit: cover;
-    }
-    .image-container {
-      position: relative;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0; /* Inicialmente oculto */
-      transition: opacity 0.3s ease; /* Transición de animación */
-    }
-
-    .overlay:hover {
-      opacity: 1; /* Mostrar el texto cuando se pasa el mouse sobre la imagen */
-    }
-
-    .animated-text {
-      color: white;
-      font-size: 24px;
-      text-align: center;
-      margin: 0;
-      opacity: 0; /* Inicialmente oculto */
-      transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
-      transition: opacity 0.3s ease, transform 0.3s ease; /* Transiciones de animación */
-    }
-
-    .overlay:hover .animated-text {
-      opacity: 1; /* Mostrar el texto cuando se pasa el mouse sobre la imagen */
-      transform: translateY(0); /* Mostrar el texto sin desplazamiento */
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-    }
-  </style>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light custom-bg-blue">
