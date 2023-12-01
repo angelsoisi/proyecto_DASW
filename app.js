@@ -5,6 +5,7 @@ const Receta = require('./models/Receta.js');
 const session = require('express-session');
 const passport = require('passport');
 const User = require("./models/User.js");
+const Recipe = require('./models/Recipe.js');
 
 console.log(User);
 
