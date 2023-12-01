@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
       recetas.forEach(receta => {
           const elementoReceta = document.createElement('div');
           elementoReceta.innerHTML = `
-              <div class="col-md-4" >
+              <div class="col-md-6" >
                 <div class="card">
                   <a href="/recipe.html?id=${receta._id}">
                     <img
