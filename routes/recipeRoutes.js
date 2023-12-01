@@ -67,22 +67,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// Route to filter recipes by ingredients and time
-router.get('/filter', async (req, res) => {
-  try {
-    const { ingredients, time } = req.query;
-    const query = {};
-    if (ingredients) {
-      query.ingredientes = { $in: ingredients.split(',') };
-    }
-    if (time) {
-      query.tiempo = { $lte: parseInt(time) };
-    }
-    const recetas = await Receta.find(query);
-    res.status(200).json(recetas);
-  } catch (err) {
-    res.status(500).send(`Error filtering recipes: ${err.message}`);
-  }
-});
-
 module.exports = router;

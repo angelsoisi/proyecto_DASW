@@ -2,12 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const recetaSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Esto crea una referencia al modelo de usuario
-    required: true
-  },
+const recipeSchema = new mongoose.Schema({
   nombre: String,
   descripcion: String,
   ingredientes: [String],
