@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             elementoReceta.innerHTML = `
                 <div class="col-md-4" >
                   <div class="card">
-                    <a href="/receta?id=${receta._id}">
+                    <a href="/recipe.html?id=${receta._id}">
                       <img
                         src="${receta.imagen}"
                         class="card-img-top"
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </a>
                     <div class="card-body">
                       <div class="overlay">
-                        <a href="receta.html?id=${receta._id}" class="animated-text">Descubrir!</a>
+                        <a href="recipe.html?id=${receta._id}" class="animated-text">Descubrir!</a>
                       </div>
                       <h5 class="card-title">${receta.nombre}</h5>
                       <p class="card-text">${receta.descripcion}</p>

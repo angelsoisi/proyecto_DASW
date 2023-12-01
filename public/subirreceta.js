@@ -38,11 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (!response.ok) {
+                    alert('Error al subir la receta');
                     throw new Error('Network response was not ok.');
+                  
                 }
                 return response.json();
             })
             .then(data => {
+                alert('Receta subida con éxito');
                 console.log('Success:', data);
                 window.location.href = '/misrecetas.html'; // Redirigir al usuario
             })

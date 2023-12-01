@@ -15,14 +15,16 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
-  try {
-    const newRecipe = new Recipe(req.body);
-    await newRecipe.save();
-    res.json(newRecipe);
-  } catch (err) {
-    res.status(500).send('Error al crear la receta.');
-  }
-})
+router.get('/:id', async (req, res) => {
+    try {
+        const recipe = await Recipe.findById(req.params.id);
+        if (!recipe) {
+            return res.status(404).send('Recipe not found');
+        }
+        res.json(recipe);
+    } catch (err) {
+        res.status(500).send('Error retrieving the recipe: ' + err.message);
+    }
+});
 
-module.exports = router
+module.exports = router;
