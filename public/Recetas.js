@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var input, filter, recipesContainer, recipes, title, i, txtValue;
     input = document.getElementById('searchInput');
     filter = input.value.toUpperCase();
-    recipesContainer = document.getElementById('lista-recetas');
-    recipes = recipesContainer.getElementsByClassName('recipe');
+    recipesContainer = document.getElementById('contenedorDeRecetas');
+    recipes = recipesContainer.getElementsByClassName('card');
   
     for (i = 0; i < recipes.length; i++) {
-      title = recipes[i].getElementsByClassName('recipe-title')[0];
+      title = recipes[i].getElementsByClassName('card-title')[0];
       txtValue = title.textContent || title.innerText;
   
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  document.getElementById('searchButton').addEventListener('click', searchRecipes);
+  document.getElementById('searchInput').addEventListener('keyup', searchRecipes);
   
   fetch('/api/recipes') // Asegúrate de que la URL coincide con tu endpoint
     .then(response => response.json())

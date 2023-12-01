@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     input = document.getElementById('searchInput');
     filter = input.value.toUpperCase();
     recipesContainer = document.getElementById('lista-recetas');
-    recipes = recipesContainer.getElementsByClassName('recipe');
+    recipes = recipesContainer.getElementsByClassName('card');
   
     for (i = 0; i < recipes.length; i++) {
-      title = recipes[i].getElementsByClassName('recipe-title')[0];
+      title = recipes[i].getElementsByClassName('card-title')[0];
       txtValue = title.textContent || title.innerText;
   
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  document.getElementById('searchButton').addEventListener('click', searchRecipes);
+  document.getElementById('searchInput').addEventListener('keyup', searchRecipes);
 
   fetch('/obtenerRecetas')
   .then(response => {
