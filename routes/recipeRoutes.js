@@ -6,7 +6,7 @@ const router = express.Router();
 const Recipe = require('../models/Recipe'); // Adjust the path as necessary
 const mongoose = require('mongoose');
 
-router.get('/recipes', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const recipes = await Recipe.find();
     res.json(recipes);
@@ -15,7 +15,7 @@ router.get('/recipes', async (req, res) => {
   }
 })
 
-router.post('/recipes', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newRecipe = new Recipe(req.body);
     await newRecipe.save();
