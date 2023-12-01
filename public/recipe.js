@@ -16,12 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+
     // Función para cargar los datos de la receta
     function loadRecipeData(id) {
         fetch(`/api/recipes/${id}`) // Asegúrate de tener una ruta en tu servidor para esto
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    loadRecetaData(id);
+                    return;
                 }
                 return response.json();
             })
@@ -42,10 +44,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             })
             .catch(error => {
+                
+                console.error('Error fetching recipe:', error);
+            });
+    }
+
+    function loadRecetaData(id) {
+        fetch(`/obtenerReceta/${id}`) // Asegúrate de tener una ruta en tu servidor para esto
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(recetaData => {
+                // Actualiza los elementos del DOM con los datos de la receta
+                document.getElementById('nombre').textContent = recetaData.nombre;
+                document.getElementById('descripcion').textContent = recetaData.descripcion;
+                document.getElementById('imagen').src = recetaData.imagen;
+                document.getElementById('tiempo').textContent = recetaData.tiempo;
+                document.getElementById('preparacion').textContent = recetaData.preparacion;
+                
+                // Agregar ingredientes a la lista
+                const ingredientesList = document.getElementById('ingredientes');
+                recetaData.ingredientes.forEach(ingrediente => {
+                    const li = document.createElement('li');
+                    li.textContent = ingrediente;
+                    ingredientesList.appendChild(li);
+                });
+            })
+            .catch(error => {
                 console.error('Error fetching recipe:', error);
             });
     }
 
     // Cargar los datos de la receta
     loadRecipeData(recipeId);
-});
+  });

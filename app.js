@@ -128,6 +128,19 @@ app.get('/obtenerRecetas', async (req, res) => {
   }
 });
 
+// Route to get a single recipe by ID
+app.get('/obtenerReceta/:id', async (req, res) => {
+  try {
+    const receta = await Receta.findById(req.params.id);
+    if (!receta) {
+      return res.status(404).send('Receta no encontrada');
+    }
+    res.json(receta);
+  } catch (err) {
+    res.status(500).send('Error al obtener la receta: ' + err.message);
+  }
+});
+
 // Rutas para manejo de usuarios y autenticación
 app.post("/sign_up", async function (req, res) {
   try {
