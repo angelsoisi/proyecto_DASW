@@ -158,7 +158,11 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/", function (req, res) {
-  res.redirect("index.html");
+  if (User.isAuthenticated()) {
+    res.redirect("Menu.html");
+  } else {
+    res.redirect("login.html");
+  }
 });
 
 app.use('/api/recipes', recipeRoutes);
