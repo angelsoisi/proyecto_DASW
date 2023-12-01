@@ -22,11 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
             elementoReceta.innerHTML = `
                 <div class="col-md-4" >
                   <div class="card">
-                    <img
-                      src="${receta.imagen}"
-                      class="card-img-top"
-                      alt="${receta.nombre}"
-                    />
+                    <a href="/receta?id=${receta._id}">
+                      <img
+                        src="${receta.imagen}"
+                        class="card-img-top"
+                        alt="${receta.nombre}"
+                      />
+                    </a>
                     <div class="card-body">
                       <div class="overlay">
                         <a href="receta.html?id=${receta._id}" class="animated-text">Descubrir!</a>
@@ -45,22 +47,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('applyFilters').addEventListener('click', function() {
-    // Collect filter values
-    const checkboxes = document.querySelectorAll('.filter:checked');
-    console.log(checkboxes);
-    const ingredients = Array.from(checkboxes)
-      .map(checkbox => checkbox.value)
-      .join(',');
-
-    // Construct the query string
-    const queryString = `ingredients=${ingredients}`;
-
-    // Recipe filtering
-    fetch('/api/recipes/filter?' + queryString)
-    
-  });
-});
