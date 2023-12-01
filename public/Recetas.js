@@ -1,6 +1,27 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', function() {
+  function searchRecipes() {
+    var input, filter, recipesContainer, recipes, title, i, txtValue;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+    recipesContainer = document.getElementById('lista-recetas');
+    recipes = recipesContainer.getElementsByClassName('recipe');
+  
+    for (i = 0; i < recipes.length; i++) {
+      title = recipes[i].getElementsByClassName('recipe-title')[0];
+      txtValue = title.textContent || title.innerText;
+  
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        recipes[i].style.display = "";
+      } else {
+        recipes[i].style.display = "none";
+      }
+    }
+  }
+
+  document.getElementById('searchButton').addEventListener('click', searchRecipes);
+  
   fetch('/api/recipes') // Asegúrate de que la URL coincide con tu endpoint
     .then(response => response.json())
     .then(recetas => {
