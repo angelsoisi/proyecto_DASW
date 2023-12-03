@@ -52,12 +52,14 @@
             type="search"
             placeholder="Encuentra tu receta!"
             aria-label="Search"
+            id="searchInput"
           />
           <div class="input-group-append">
             <button
               class="btn btn-outline-success"
               type="submit"
               title="Search"
+              id="searchButton"
             >
               <i class="fas fa-search"></i>
             </button>
@@ -86,315 +88,20 @@
     <div class="featured-recipes">
       <div class="container">
         <h2 class="text-center">Recetas populares!</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card">
-              <a href="recipe1.html">
-                <img
-                  src="https://cdn7.kiwilimon.com/recetaimagen/26245/640x640/38984.jpg.webp"
-                  class="card-img-top"
-                  alt="Recipe 1"
-                />
-              </a>
-              <div class="overlay">
-                <a href="recipe1.html" class="animated-text">Descúbrela!</a>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title">Enchiladas suizas!</h5>
-                <p class="card-text">
-                  ¡Preparar unas deliciosas enchiladas suizas es una experiencia
-                  que te transportará directamente a los sabores auténticos de
-                  México!.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img
-                src="https://thefoodtech.com/wp-content/uploads/2022/07/lasagna--828x548.jpg"
-                class="card-img-top"
-                alt="Recipe 2"
-              />
-              <div class="card-body">
-                <div class="overlay">
-                  <a href="recipe2.html" class="animated-text">Descúbrela!</a>
-                </div>
-                <h5 class="card-title">Lasaña!</h5>
-                <p class="card-text">
-                  ¡Preparar una lasaña es como crear una sinfonía de sabores y
-                  capas que se combinan para formar una experiencia culinaria
-                  inolvidable!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img
-                src="https://storage.googleapis.com/fitia-api-bucket/media/images/recipe_images/1003443.jpg"
-                class="card-img-top"
-                alt="Recipe 3"
-              />
-              <div class="card-body">
-                <div class="overlay">
-                  <a href="recipe3.html" class="animated-text">Descúbrela!</a>
-                </div>
-                <h5 class="card-title">Taquitos!</h5>
-                <p class="card-text">
-                  ¡Preparar tacos es una experiencia culinaria que despierta
-                  todos tus sentidos y te sumerge en la auténtica esencia de la
-                  cocina mexicana!.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img
-                src="https://www.gourmet.cl/wp-content/uploads/2016/09/Ensalada_C%C3%A9sar-web-553x458.jpg"
-                class="card-img-top"
-                alt="Recipe 3"
-              />
-              <div class="card-body">
-                <div class="overlay">
-                  <a href="recipe4.html" class="animated-text">Descúbrela!</a>
-                </div>
-                <h5 class="card-title">Ensalada cesar!</h5>
-                <p class="card-text">
-                  ¡Preparar una ensalada César es como crear una obra maestra de
-                  frescura y sabor!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img
-                src="https://www.goya.com/media/3202/chicken-flautas.jpg?quality=80"
-                class="card-img-top"
-                alt="Recipe 3"
-              />
-              <div class="card-body">
-                <div class="overlay">
-                  <a href="recipe5.html" class="animated-text">Descúbrela!</a>
-                </div>
-                <h5 class="card-title">Flautas de pollo!</h5>
-                <p class="card-text">
-                  ¡Preparar flautas de pollo es una experiencia culinaria que te
-                  llevará directamente a las vibrantes calles de México!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img
-                src="https://dishingouthealth.com/wp-content/uploads/2022/01/SpicyMisoRamen_Square.jpg"
-                class="card-img-top"
-                alt="Recipe 3"
-              />
-              <div class="card-body">
-                <div class="overlay">
-                  <a href="recipe6.html" class="animated-text">Descúbrela!</a>
-                </div>
-                <h5 class="card-title">Ramen!</h5>
-                <p class="card-text">
-                  ¡Preparar un delicioso ramen es como crear un cuenco
-                  reconfortante lleno de sabores intensos y exquisitos!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="row" id="contenedorDeRecetas"></div>
       </div>
       <img src="xd.png" class="border-image" alt="Border Image" />
       <img src="xd2.png" class="border-image2" alt="Border Image" />
     </div>
     <img src="xd.png" class="border-image" alt="Border Image" />
     <img src="xd2.png" class="border-image2" alt="Border Image" />
-    <div
-      class="modal fade"
-      id="registerModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="modelTitleId"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Registrar usuario</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="registroForm">
-              <div class="row">
-                <div class="col-6">
-                  <input
-                    type="text"
-                    id="nombre"
-                    class="form-control"
-                    placeholder="Nombre(s)"
-                    required
-                  />
-                </div>
-                <div class="col-6">
-                  <input
-                    type="text"
-                    id="apellidos"
-                    class="form-control"
-                    placeholder="Apellidos"
-                    required
-                  />
-                </div>
-              </div>
-              <input
-                type="mail"
-                id="correo"
-                class="form-control mt-3"
-                placeholder="Tu correo"
-                required
-              />
-              <input
-                type="password"
-                id="contrasena"
-                class="form-control mt-3"
-                placeholder="Contraseña"
-                required
-              />
-              <input
-                type="password"
-                id="confirmContrasena"
-                class="form-control mt-3"
-                placeholder="Confirmar contraseña"
-                required
-              />
-              <button type="submit" class="btn btn-success mt-3 mx-auto w-100">
-                Registrarse
-              </button>
-            </form>
-            <div
-              id="mensajeExito"
-              class="alert alert-success mt-3"
-              style="display: none"
-            >
-              Usuario registrado con éxito!
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="modal fade"
-      id="login"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="modelTitleId"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Login</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
 
-          <div class="modal-body">
-            <div class="container-fluid">
-              <div class="form-group">
-                <label for="">Correo</label>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"
-                      ><i class="fas fa-user"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="text"
-                    class="col-10 form-control"
-                    name="mail"
-                    id="mail"
-                    aria-describedby="helpIdMail"
-                    placeholder="correo registrado"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon2"
-                      ><i class="fas fa-key"></i
-                    ></span>
-                  </div>
-                  <input
-                    type="password"
-                    class="col-10 form-control"
-                    name="password"
-                    id="password"
-                    aria-describedby="helpIdPassword"
-                    placeholder="ingresa tu contraseña"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="controls">
-                  <button
-                    type="button"
-                    id="loginButton"
-                    class="btn btn-success mt-3 mx-auto w-100"
-                  >
-                    Login
-                  </button>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-md-12 control">
-                  <div
-                    style="
-                      border-top: 1px solid#888;
-                      padding-top: 15px;
-                      font-size: 85%;
-                    "
-                  >
-                    No tienes cuenta!
-                    <a
-                      href="#"
-                      data-dismiss="modal"
-                      data-toggle="modal"
-                      data-target="#registro"
-                    >
-                      Registrate aquí
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
-    <script src="misrecetas.js"></script>
-    <script src="subirreceta.js"></script>
+    <script src="Recetas.js"></script>
+    <!-- <script src="misrecetas.js"></script>
+    <script src="subirreceta.js"></script> -->
   </body>
 </html>
